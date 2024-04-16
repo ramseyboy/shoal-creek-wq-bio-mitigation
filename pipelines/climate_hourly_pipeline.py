@@ -126,13 +126,7 @@ class ClimateHourlyTransformable(Transformable):
         df = geopandas.GeoDataFrame(df, geometry=geopandas.points_from_xy(x=df["longitude"], y=df["latitude"],
                                                                                crs="EPSG:4326"))
         df['date_time'] = pandas.to_datetime(df['date_time'])
-
-        df = df[
-            (df.value.notnull()) &
-            (pandas.to_numeric(df.value, errors='coerce').notnull()) &
-            (pandas.to_numeric(df.value, errors='coerce') > 0.0)
-            ]
-        df.value = df.value.astype(float)
+        df['value'] = pandas.to_numeric(df['value'], errors='coerce').fillna(0.0)
 
         climate = df.to_crs(crs="EPSG:26914")
         return climate

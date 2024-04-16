@@ -1,7 +1,9 @@
 from config import PostgresReadWriteConfig
 from pipelines import Pipeline
 from pipelines.bio_controls_pipeline import BioControlsQueryable, BioControlsTransformable
+from pipelines.climate_daily_pipeline import ClimateDailyQueryable, ClimateDailyTransformable
 from pipelines.climate_hourly_pipeline import ClimateHourlyTransformable, ClimateHourlyQueryable
+from pipelines.discharge_daily_pipeline import DischargeDailyQueryable, DischargeDailyTransformable
 from pipelines.discharge_pipeline import DischargeQueryable, DischargeTransformable
 from pipelines.hydrography_pipeline import HydrographyQueryable, HydrographyTransformable
 from pipelines.water_quality_pipeline import WaterQualityQueryable, WaterQualityTransformable
@@ -32,6 +34,16 @@ def export_postgis():
         .query(ClimateHourlyQueryable()) \
         .transform(ClimateHourlyTransformable()) \
         .export_postgis(conn_str=cnx, layer_name='climate_hourly')
+
+    Pipeline() \
+        .query(DischargeDailyQueryable()) \
+        .transform(DischargeDailyTransformable()) \
+        .export_postgis(conn_str=cnx, layer_name='discharge_daily')
+
+    Pipeline() \
+        .query(ClimateDailyQueryable()) \
+        .transform(ClimateDailyTransformable()) \
+        .export_postgis(conn_str=cnx, layer_name='climate_daily')
 
     Pipeline() \
         .query(WaterQualityQueryable()) \
