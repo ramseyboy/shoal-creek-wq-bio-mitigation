@@ -1,29 +1,31 @@
 import geopandas
+import pandas
 from sqlalchemy import create_engine
 from config import PostgresReadOnlyConfig
+import pandas
 
 conn_str = PostgresReadOnlyConfig().__str__()
 engine = create_engine(conn_str)
 
 
-def precipitation_interval_query(parameters: list[str], locations: list[str], parameter: str):
+def precipitation_interval_query(parameters: list[str], location: str, parameter: str,
+                                 interval: int = 120) -> pandas.DataFrame:
     parameters_csv = ','.join(f"'{p}'" for p in parameters)
-    locations_csv = ','.join(f"'{l}'" for l in locations)
 
     query_template = f"""
     with 
     sample_date as (
      select wq.sample_date_time::date as sample_date from public.water_quality wq 
      where parameter IN ({parameters_csv})
-        and wq.sample_location in ({locations_csv})
+        and wq.sample_location in ('{location}')
     ),
     intervals as (
     select 
             (select min(s.sample_date) from sample_date s) + ( n    || ' day')::interval start_date,
-            (select min(s.sample_date) from sample_date s) + ((n+120) || ' day')::interval end_date
+            (select min(s.sample_date) from sample_date s) + ((n+{interval}) || ' day')::interval end_date
           from generate_series(
           0, 
-          ((select max(s.sample_date)::date from sample_date s) - (select min(s.sample_date)::date from sample_date s)), 120) n
+          ((select max(s.sample_date)::date from sample_date s) - (select min(s.sample_date)::date from sample_date s)), {interval}) n
       )
       SELECT 
         max(c.station_number) as station_number,
@@ -48,25 +50,25 @@ def precipitation_interval_query(parameters: list[str], locations: list[str], pa
     return df
 
 
-def discharge_interval_query(parameters: list[str], locations: list[str], site_number: str, parameter: str):
+def discharge_interval_query(parameters: list[str], location: str, site_number: str, parameter: str,
+                             interval: int = 120) -> pandas.DataFrame:
     parameters_csv = ','.join(f"'{p}'" for p in parameters)
-    locations_csv = ','.join(f"'{l}'" for l in locations)
 
     query_template = f"""
     with
     sample_date as (
      select wq.sample_date_time::date as sample_date from public.water_quality wq 
      where parameter IN ({parameters_csv})
-        and wq.sample_location in ({locations_csv})
+        and wq.sample_location in ('{location}')
     ),
     intervals as (
     select 
             (select min(s.sample_date) from sample_date s) + ( n    || ' day')::interval start_date,
-            (select min(s.sample_date) from sample_date s) + ((n+120) || ' day')::interval end_date
+            (select min(s.sample_date) from sample_date s) + ((n+{interval}) || ' day')::interval end_date
           from generate_series(
           0, 
           ((select max(s.sample_date)::date from sample_date s) - (select min(s.sample_date)::date from sample_date s)),
-          120) n
+          {interval}) n
       )
     select  
     'USGS-' || max(d.site_number) as site_number,
@@ -92,25 +94,25 @@ def discharge_interval_query(parameters: list[str], locations: list[str], site_n
     return df
 
 
-def water_quality_interval_query(parameters: list[str], locations: list[str], parameter: str, unit: str):
+def water_quality_interval_query(parameters: list[str], location: str, parameter: str, unit: str,
+                                 interval: int = 120) -> pandas.DataFrame:
     parameters_csv = ','.join(f"'{p}'" for p in parameters)
-    locations_csv = ','.join(f"'{l}'" for l in locations)
 
     query_template = f"""
         with 
         sample_date as (
              select wq.sample_date_time::date as sample_date from public.water_quality wq 
              where parameter IN ({parameters_csv})
-                and wq.sample_location in ({locations_csv})
+                and wq.sample_location in ('{location}')
         ),
         intervals as (
             select 
                 (select min(s.sample_date) from sample_date s) + ( n    || ' day')::interval start_date,
-                (select min(s.sample_date) from sample_date s) + ((n+120) || ' day')::interval end_date
+                (select min(s.sample_date) from sample_date s) + ((n+{interval}) || ' day')::interval end_date
               from generate_series(
               0, 
               ((select max(s.sample_date)::date from sample_date s) - (select min(s.sample_date)::date from sample_date s)),
-              120) n
+              {interval}) n
           )
           SELECT 
             max(sample_location) as sample_location,
@@ -126,7 +128,7 @@ def water_quality_interval_query(parameters: list[str], locations: list[str], pa
            FROM intervals i
            left outer join public.water_quality wq on wq.sample_date_time::date >= i.start_date and wq.sample_date_time::date < i.end_date  
                and parameter IN ({parameters_csv})
-                and wq.sample_location in ({locations_csv})
+                and wq.sample_location in ('{location}')
             group by i.start_date, i.end_date
             order by i.start_date desc;
     """
@@ -137,3 +139,24 @@ def water_quality_interval_query(parameters: list[str], locations: list[str], pa
     df["unit"] = unit
     df["parameter"] = parameter
     return df
+
+
+def create_intervals(parameters: dict[str, list[str]], units: dict[str], sample_location: str, interval: int = 90):
+    wq_intervals = geopandas.GeoDataFrame()
+    discharge_intervals = geopandas.GeoDataFrame()
+    precipitation_intervals = geopandas.GeoDataFrame()
+
+    for parameter in parameters:
+        wq_df = water_quality_interval_query(parameters=parameters[parameter], location=sample_location,
+                                             unit=units[parameter], parameter=parameter, interval=interval)
+        wq_intervals = pandas.concat([wq_intervals, wq_df])
+
+        discharge_df = discharge_interval_query(parameters=parameters[parameter], location=sample_location,
+                                                site_number="08156800", parameter=parameter, interval=interval)
+        discharge_intervals = pandas.concat([discharge_intervals, discharge_df])
+
+        precipitation_df = precipitation_interval_query(parameters=parameters[parameter], location=sample_location,
+                                                        parameter=parameter, interval=interval)
+        precipitation_intervals = pandas.concat([precipitation_intervals, precipitation_df])
+
+    return wq_intervals, discharge_intervals, precipitation_intervals
