@@ -156,4 +156,4 @@ def __write_intervals():
                                                    interval=default_interval)
             wq_intervals = pandas.concat([wq_intervals, wq_df])
         engine = create_engine(PostgresReadWriteConfig().__str__())
-        wq_intervals.to_postgis("water_quality_intervals", con=engine, if_exists='append')
+        # wq_intervals.to_postgis("water_quality_intervals", con=engine, if_exists='append')
