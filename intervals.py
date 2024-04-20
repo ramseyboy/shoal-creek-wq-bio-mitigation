@@ -8,13 +8,14 @@ conn_str = PostgresReadOnlyConfig().__str__()
 engine = create_engine(conn_str)
 
 location_2222 = "Shoal Creek @ Shoal Edge Court (EII)"
-location_24th = "Shoal Creek @ 24th Street"
-location_12th = "USGS-08156800"
-location_1st_upstream = "Shoal Creek Upstream of 1st St"
 
-default_interval = 90
+default_interval = 120
 
 parameters_map = {
+    "temperature": ["WATER TEMPERATURE"],
+    "phosphorus": ["PHOSPHORUS AS P", "ORTHOPHOSPHORUS AS P"],
+    "nitrates": ["NITRATE/NITRITE AS N", "NITRATE AS N"],
+    "ph": ["PH"],
     "ammonia": ["Ammonia and ammonium", "AMMONIA AS N"],
     "turbidity": ["Turbidity", "TURBIDITY"],
     "conductivity": ["Specific conductance", "CONDUCTIVITY"],
@@ -23,6 +24,10 @@ parameters_map = {
 }
 
 parameters = [
+    "temperature",
+    "phosphorus",
+    "nitrates",
+    "ph",
     "ammonia",
     "turbidity",
     "conductivity",
@@ -31,12 +36,17 @@ parameters = [
 ]
 
 units = {
+    "temperature": "deg. C",
+    "nitrates": "mg/l",
+    "phosphorus": "mg/l",
+    "ph": "standard units",
     "ammonia": "mg/l",
     "turbidity": "NTU",
     "conductivity": "uS/cm",
     "tss": "mg/L",
     "ecoli": "cfu/100ml"
 }
+
 
 def query(parameter: str, sample_location: str):
     query_template = f"""
@@ -84,7 +94,7 @@ def query_with_discharge_precip(parameter: str, sample_location: str):
         FROM public.water_quality_intervals wq
         left outer join public.discharge_daily dd on dd.date_time::date >= wq.start_date and dd.date_time::date < wq.end_date
             and dd."parameter" = 'Discharge'
-            and dd.site_number = '08156800'
+            and dd.site_number = '08156675'
         left outer join public.climate_daily cd  on cd.date_time::date >= wq.start_date and cd.date_time::date < wq.end_date
             and cd."parameter" = 'Precipitation'
         where wq."parameter" in ('{parameter}')
@@ -107,8 +117,7 @@ def __water_quality_interval_query(parameters: list[str], location: str, paramet
         with 
         sample_date as (
              select wq.sample_date_time::date as sample_date from public.water_quality wq 
-             where parameter IN ({parameters_csv})
-                and wq.sample_location in ('{location}')
+             where wq.sample_location in ('{location}')
         ),
         intervals as (
             select 
@@ -148,12 +157,16 @@ def __water_quality_interval_query(parameters: list[str], location: str, paramet
 
 
 def __write_intervals():
-    for sample_location in [location_2222, location_24th, location_12th, location_1st_upstream]:
-        wq_intervals = geopandas.GeoDataFrame()
-        for filter_parameter in list(units.keys()):
-            wq_df = __water_quality_interval_query(parameters=parameters_map[filter_parameter], location=sample_location,
-                                                   unit=units[filter_parameter], parameter=filter_parameter,
-                                                   interval=default_interval)
-            wq_intervals = pandas.concat([wq_intervals, wq_df])
-        engine = create_engine(PostgresReadWriteConfig().__str__())
-        # wq_intervals.to_postgis("water_quality_intervals", con=engine, if_exists='append')
+    wq_intervals = geopandas.GeoDataFrame()
+    for filter_parameter in parameters:
+        wq_df = __water_quality_interval_query(parameters=parameters_map[filter_parameter],
+                                               location=location_2222,
+                                               unit=units[filter_parameter], parameter=filter_parameter,
+                                               interval=default_interval)
+        wq_intervals = pandas.concat([wq_intervals, wq_df])
+    engine = create_engine(PostgresReadWriteConfig().__str__())
+    wq_intervals.to_postgis("water_quality_intervals", con=engine, if_exists='replace')
+
+
+if __name__ == '__main__':
+    __write_intervals()
