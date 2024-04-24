@@ -4,7 +4,9 @@ from typing import Union
 import geopandas
 import pandas
 from shapely.wkt import loads
+from sqlalchemy import create_engine
 
+from config import PostgresReadWriteConfig
 from pipelines import Transformable, Queryable
 
 geopandas.options.io_engine = "pyogrio"
@@ -13,30 +15,19 @@ geopandas.options.io_engine = "pyogrio"
 class WatershedQueryable(Queryable):
 
     def __init__(self):
-        self.db_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "../data/staging.gpkg")
+        self.conn_str = PostgresReadWriteConfig().__str__()
+        self.engine = create_engine(self.conn_str)
 
         self.query_str = """
-        SELECT 
-             OBJECTID, 
-             WATERSHED_FULL_NAME as watershed_name, 
-             the_geom as geometry, 
-             SHAPE_Area as area, 
-             SHAPE_Length as length, 
-             RECEIVING_BASIN as receiving_basin, 
-             RECEIVING_WATERS as receiving_waters, 
-             WATERSHED_ID as watershed_id 
-             FROM WBD_COA 
-             where watershed_name = 'Shoal Creek'
-             order by length desc
+        SELECT * FROM public.watershed w
         """
 
     def query(self) -> Union[geopandas.GeoDataFrame, pandas.DataFrame]:
-        return geopandas.read_file(filename=self.db_path, sql=self.query_str)
+        return geopandas.read_postgis(
+            sql=self.query_str,
+            con=self.engine, geom_col='geometry', crs="EPSG:26914")
 
 
 class WatershedTransformable(Transformable):
     def transform(self, df: Union[geopandas.GeoDataFrame, pandas.DataFrame]) -> geopandas.GeoDataFrame:
-        watersheds = geopandas.GeoDataFrame(df)
-        watersheds.geometry = df['geometry'].apply(loads)
-        watersheds = watersheds.set_crs(crs="EPSG:4326")
-        return watersheds.to_crs(crs="EPSG:26914")
+        return geopandas.GeoDataFrame(df)
