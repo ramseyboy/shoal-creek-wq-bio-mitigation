@@ -1,5 +1,5 @@
 <!DOCTYPE qgis PUBLIC 'http://mrcc.com/qgis.dtd' 'SYSTEM'>
-<qgis saveDateTime="2024-04-24T09:57:21" version="3.34.4-Prizren" projectname="shoal-creek-wq-bio-mitigation&#xa; (QFieldCloud)" saveUser="walkerhannan" saveUserFull="Walker Hannan">
+<qgis saveDateTime="2024-04-25T20:41:47" version="3.34.4-Prizren" projectname="shoal-creek-wq-bio-mitigation&#xa; (QFieldCloud)" saveUser="walkerhannan" saveUserFull="Walker Hannan">
   <homePath path=""/>
   <title>shoal-creek-wq-bio-mitigation
  (QFieldCloud)</title>
@@ -113,10 +113,10 @@
   <mapcanvas annotationsVisible="1" name="theMapCanvas">
     <units>meters</units>
     <extent>
-      <xmin>620289.07358570490032434</xmin>
-      <ymin>3356282.19361147936433554</ymin>
-      <xmax>620337.94780445471405983</xmax>
-      <ymax>3356325.50611147936433554</ymax>
+      <xmin>620014.34180655621457845</xmin>
+      <ymin>3354415.46439048880711198</ymin>
+      <xmax>621578.31680655025411397</xmax>
+      <ymax>3355801.46439048880711198</ymax>
     </extent>
     <rotation>0</rotation>
     <destinationsrs>
@@ -324,6 +324,15 @@
         <type>dataset</type>
         <title></title>
         <abstract></abstract>
+        <contact>
+          <name></name>
+          <organization></organization>
+          <position></position>
+          <voice></voice>
+          <fax></fax>
+          <email></email>
+          <role></role>
+        </contact>
         <links/>
         <dates/>
         <fees></fees>
@@ -341,7 +350,15 @@
             <geographicflag>false</geographicflag>
           </spatialrefsys>
         </crs>
-        <extent/>
+        <extent>
+          <spatial minx="179769313486231570814527423731704356798070567525844996598917476803157260780028538760589558632766878171540458953514382464234321326889464182768467546703537516986049910576551282076245490090389328944075868508455133942304583236903222948165808559332123348274797826204144723168738177180919299881250404026184124858368" maxy="-179769313486231570814527423731704356798070567525844996598917476803157260780028538760589558632766878171540458953514382464234321326889464182768467546703537516986049910576551282076245490090389328944075868508455133942304583236903222948165808559332123348274797826204144723168738177180919299881250404026184124858368" crs="" minz="0" maxx="-179769313486231570814527423731704356798070567525844996598917476803157260780028538760589558632766878171540458953514382464234321326889464182768467546703537516986049910576551282076245490090389328944075868508455133942304583236903222948165808559332123348274797826204144723168738177180919299881250404026184124858368" dimensions="2" miny="179769313486231570814527423731704356798070567525844996598917476803157260780028538760589558632766878171540458953514382464234321326889464182768467546703537516986049910576551282076245490090389328944075868508455133942304583236903222948165808559332123348274797826204144723168738177180919299881250404026184124858368" maxz="0"/>
+          <temporal>
+            <period>
+              <start></start>
+              <end></end>
+            </period>
+          </temporal>
+        </extent>
       </resourceMetadata>
       <provider>wms</provider>
       <noData>
@@ -456,6 +473,19 @@
       </elevation>
       <customproperties>
         <Option type="Map">
+          <Option name="QFieldSync/action" type="QString" value="no_action"/>
+          <Option name="QFieldSync/attachment_naming" type="QString" value="{}"/>
+          <Option name="QFieldSync/cloud_action" type="QString" value="no_action"/>
+          <Option name="QFieldSync/geometry_locked_expression" type="QString" value=""/>
+          <Option name="QFieldSync/photo_naming" type="QString" value="{}"/>
+          <Option name="QFieldSync/relationship_maximum_visible" type="QString" value="{}"/>
+          <Option name="QFieldSync/tracking_distance_requirement_minimum_meters" type="int" value="30"/>
+          <Option name="QFieldSync/tracking_erroneous_distance_safeguard_maximum_meters" type="int" value="100"/>
+          <Option name="QFieldSync/tracking_measurement_type" type="int" value="0"/>
+          <Option name="QFieldSync/tracking_time_requirement_interval_seconds" type="int" value="30"/>
+          <Option name="WMSBackgroundLayer" type="bool" value="false"/>
+          <Option name="WMSPublishDataSourceUrl" type="bool" value="false"/>
+          <Option name="embeddedWidgets/count" type="int" value="0"/>
           <Option name="identify/format" type="QString" value="Undefined"/>
         </Option>
       </customproperties>
@@ -8341,7 +8371,7 @@ def my_form_open(dialog, layer, feature):
   <Sensors/>
   <ProjectViewSettings UseProjectScales="0" rotation="0">
     <Scales/>
-    <DefaultViewExtent ymin="3356282.19361147936433554" xmax="620346.77153275907039642" xmin="620280.24985740054398775" ymax="3356325.50611147936433554">
+    <DefaultViewExtent ymin="3354415.46439048880711198" xmax="621860.67611228988971561" xmin="619731.98250081657897681" ymax="3355801.46439048880711198">
       <spatialrefsys nativeFormat="Wkt">
         <wkt>PROJCRS["NAD83 / UTM zone 14N",BASEGEOGCRS["NAD83",DATUM["North American Datum 1983",ELLIPSOID["GRS 1980",6378137,298.257222101,LENGTHUNIT["metre",1]]],PRIMEM["Greenwich",0,ANGLEUNIT["degree",0.0174532925199433]],ID["EPSG",4269]],CONVERSION["UTM zone 14N",METHOD["Transverse Mercator",ID["EPSG",9807]],PARAMETER["Latitude of natural origin",0,ANGLEUNIT["degree",0.0174532925199433],ID["EPSG",8801]],PARAMETER["Longitude of natural origin",-99,ANGLEUNIT["degree",0.0174532925199433],ID["EPSG",8802]],PARAMETER["Scale factor at natural origin",0.9996,SCALEUNIT["unity",1],ID["EPSG",8805]],PARAMETER["False easting",500000,LENGTHUNIT["metre",1],ID["EPSG",8806]],PARAMETER["False northing",0,LENGTHUNIT["metre",1],ID["EPSG",8807]]],CS[Cartesian,2],AXIS["(E)",east,ORDER[1],LENGTHUNIT["metre",1]],AXIS["(N)",north,ORDER[2],LENGTHUNIT["metre",1]],USAGE[SCOPE["Engineering survey, topographic mapping."],AREA["North America - between 102°W and 96°W - onshore and offshore. Canada - Manitoba; Nunavut; Saskatchewan. United States (USA) - Iowa; Kansas; Minnesota; Nebraska; North Dakota; Oklahoma; South Dakota; Texas."],BBOX[25.83,-102,84,-96]],ID["EPSG",26914]]</wkt>
         <proj4>+proj=utm +zone=14 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs</proj4>
@@ -8406,7 +8436,7 @@ def my_form_open(dialog, layer, feature):
       </spatialrefsys>
     </CoordinateCustomCrs>
   </ProjectDisplaySettings>
-  <ProjectGpsSettings destinationFollowsActiveLayer="1" destinationLayer="water_quality_field_samples_848ed5f8_29b1_49e5_b90d_55d458b1fcf2" autoAddTrackVertices="0" destinationLayerName="water_quality_field_samples" destinationLayerSource="/Users/walkerhannan/projects/Bio-Mitigation-Sediment-Transport/qgis/field_data_collection.gpkg|layername=water_quality_field_samples" destinationLayerProvider="ogr" autoCommitFeatures="0">
+  <ProjectGpsSettings destinationFollowsActiveLayer="1" destinationLayer="" autoAddTrackVertices="0" autoCommitFeatures="0">
     <timeStampFields/>
   </ProjectGpsSettings>
 </qgis>

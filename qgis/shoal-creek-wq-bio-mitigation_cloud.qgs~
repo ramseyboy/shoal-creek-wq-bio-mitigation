@@ -1,5 +1,5 @@
 <!DOCTYPE qgis PUBLIC 'http://mrcc.com/qgis.dtd' 'SYSTEM'>
-<qgis saveDateTime="2024-04-24T09:51:56" version="3.34.4-Prizren" projectname="shoal-creek-wq-bio-mitigation&#xa; (QFieldCloud)" saveUser="walkerhannan" saveUserFull="Walker Hannan">
+<qgis saveDateTime="2024-04-25T20:41:27" version="3.34.4-Prizren" projectname="shoal-creek-wq-bio-mitigation&#xa; (QFieldCloud)" saveUser="walkerhannan" saveUserFull="Walker Hannan">
   <homePath path=""/>
   <title>shoal-creek-wq-bio-mitigation
  (QFieldCloud)</title>
@@ -113,10 +113,10 @@
   <mapcanvas annotationsVisible="1" name="theMapCanvas">
     <units>meters</units>
     <extent>
-      <xmin>620282.31159040960483253</xmin>
-      <ymin>3356252.88567470945417881</ymin>
-      <xmax>620380.0600279092323035</xmax>
-      <ymax>3356339.51067470945417881</ymax>
+      <xmin>620014.34180655621457845</xmin>
+      <ymin>3354415.46439048880711198</ymin>
+      <xmax>621578.31680655025411397</xmax>
+      <ymax>3355801.46439048880711198</ymax>
     </extent>
     <rotation>0</rotation>
     <destinationsrs>
@@ -8341,7 +8341,7 @@ def my_form_open(dialog, layer, feature):
   <Sensors/>
   <ProjectViewSettings UseProjectScales="0" rotation="0">
     <Scales/>
-    <DefaultViewExtent ymin="3356252.88567470945417881" xmax="620397.70748451794497669" xmin="620264.66413380089215934" ymax="3356339.51067470945417881">
+    <DefaultViewExtent ymin="3354415.46439048880711198" xmax="621860.67611228988971561" xmin="619731.98250081657897681" ymax="3355801.46439048880711198">
       <spatialrefsys nativeFormat="Wkt">
         <wkt>PROJCRS["NAD83 / UTM zone 14N",BASEGEOGCRS["NAD83",DATUM["North American Datum 1983",ELLIPSOID["GRS 1980",6378137,298.257222101,LENGTHUNIT["metre",1]]],PRIMEM["Greenwich",0,ANGLEUNIT["degree",0.0174532925199433]],ID["EPSG",4269]],CONVERSION["UTM zone 14N",METHOD["Transverse Mercator",ID["EPSG",9807]],PARAMETER["Latitude of natural origin",0,ANGLEUNIT["degree",0.0174532925199433],ID["EPSG",8801]],PARAMETER["Longitude of natural origin",-99,ANGLEUNIT["degree",0.0174532925199433],ID["EPSG",8802]],PARAMETER["Scale factor at natural origin",0.9996,SCALEUNIT["unity",1],ID["EPSG",8805]],PARAMETER["False easting",500000,LENGTHUNIT["metre",1],ID["EPSG",8806]],PARAMETER["False northing",0,LENGTHUNIT["metre",1],ID["EPSG",8807]]],CS[Cartesian,2],AXIS["(E)",east,ORDER[1],LENGTHUNIT["metre",1]],AXIS["(N)",north,ORDER[2],LENGTHUNIT["metre",1]],USAGE[SCOPE["Engineering survey, topographic mapping."],AREA["North America - between 102°W and 96°W - onshore and offshore. Canada - Manitoba; Nunavut; Saskatchewan. United States (USA) - Iowa; Kansas; Minnesota; Nebraska; North Dakota; Oklahoma; South Dakota; Texas."],BBOX[25.83,-102,84,-96]],ID["EPSG",26914]]</wkt>
         <proj4>+proj=utm +zone=14 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs</proj4>
@@ -8406,7 +8406,7 @@ def my_form_open(dialog, layer, feature):
       </spatialrefsys>
     </CoordinateCustomCrs>
   </ProjectDisplaySettings>
-  <ProjectGpsSettings destinationFollowsActiveLayer="1" destinationLayer="water_quality_intervals_b19bce9e_af2f_44a1_828d_d092af4f9407" autoAddTrackVertices="0" destinationLayerName="water_quality_intervals" destinationLayerSource="/Users/walkerhannan/projects/Bio-Mitigation-Sediment-Transport/qgis/waterqualityintervals.gpkg" destinationLayerProvider="ogr" autoCommitFeatures="0">
+  <ProjectGpsSettings destinationFollowsActiveLayer="1" destinationLayer="water_quality_field_samples_848ed5f8_29b1_49e5_b90d_55d458b1fcf2" autoAddTrackVertices="0" destinationLayerName="water_quality_field_samples" destinationLayerSource="/Users/walkerhannan/projects/Bio-Mitigation-Sediment-Transport/qgis/field_data_collection.gpkg|layername=water_quality_field_samples" destinationLayerProvider="ogr" autoCommitFeatures="0">
     <timeStampFields/>
   </ProjectGpsSettings>
 </qgis>
