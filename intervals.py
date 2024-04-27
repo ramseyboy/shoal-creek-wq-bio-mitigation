@@ -83,7 +83,27 @@ units = {
 }
 
 
-def query(parameter: str, sample_locations: str):
+def joined_parameters_query(out_parameters: list[str], out_locations: list[str]):
+    joined = geopandas.GeoDataFrame()
+    for index, filter_parameter in enumerate(out_parameters):
+        i = query(filter_parameter, out_locations).drop(
+            ['end_date', 'sample_location', 'geometry', 'parameter', 'unit'], axis=1)
+        if index == 0:
+            joined = pandas.concat([joined, i])
+        else:
+            joined = joined.merge(i, how='outer', on='start_date',
+                                  suffixes=(f'_{out_parameters[index - 1]}', f'_{filter_parameter}'))
+
+        if index == len(out_parameters) - 1:
+            joined = joined.rename(columns={
+                'avg_value': f'avg_value_{filter_parameter}',
+                'median_value': f'median_value_{filter_parameter}',
+                'max_value': f'max_value_{filter_parameter}',
+                'min_value': f'min_value_{filter_parameter}'})
+    return joined
+
+
+def query(parameter: str, sample_locations: list[str]):
     locations_csv = ','.join(f"'{p}'" for p in sample_locations)
     query_template = f"""
         SELECT
@@ -145,8 +165,8 @@ def query_with_discharge_precip(parameter: str, sample_location: str):
         con=engine, geom_col='geometry', crs="EPSG:26914")
 
 
-def locations_query():
-    query_template = """
+def locations_query(exclude: str = None):
+    query_template = f"""
     select wq.sample_location
     from public.water_quality wq 
     where 
@@ -160,6 +180,7 @@ def locations_query():
                 )
             )
         )
+        and wq.sample_location not in ('{exclude}')
     group by wq.sample_location
     order by wq.sample_location
     """
