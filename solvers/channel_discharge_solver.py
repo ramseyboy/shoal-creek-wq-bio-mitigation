@@ -5,7 +5,8 @@ from solvers import ChannelType
 
 class ChannelDischargeSolver:
 
-    def __init__(self, channel_type=ChannelType.Trapezoid, manning_roughness_coefficient: float = None, channel_slope: float = None,
+    def __init__(self, channel_type=ChannelType.Trapezoid, manning_roughness_coefficient: float = None,
+                 channel_slope: float = None,
                  bottom_width_channel: float = None, depth_flow: float = None, side_slope: float = None,
                  soil_infiltration_rate: float = None):
         self.soil_infiltration_rate = soil_infiltration_rate
@@ -32,7 +33,7 @@ class ChannelDischargeSolver:
         v = self.__velocity(hr, self.channel_slope, self.manning_roughness_coefficient)
 
         if self.soil_infiltration_rate is not None:
-            pass #todo
+            pass  #todo
 
         return round(self.__discharge(v, ca), 2)
 
@@ -42,7 +43,7 @@ class ChannelDischargeSolver:
 
     @staticmethod
     def __wetted_perimeter(bottom_width_channel: float, depth_flow: float, side_slope: float) -> float:
-        return bottom_width_channel + 2 * depth_flow * (1 + math.pow(side_slope, 2)) * 0.5
+        return bottom_width_channel + (2 * depth_flow) * math.pow((1 + math.pow(side_slope, 2)), 0.5)
 
     @staticmethod
     def __hydraulic_radius(cross_sectional_area: float, wetted_perimeter: float) -> float:
@@ -50,8 +51,9 @@ class ChannelDischargeSolver:
 
     @staticmethod
     def __velocity(hydraulic_radius: float, channel_slope: float, manning_roughness_coefficient: float) -> float:
-        return (1.49 * math.pow(hydraulic_radius, 2 / 3) * math.pow(channel_slope, 1 / 2)) / manning_roughness_coefficient
+        return (1.49 * math.pow(hydraulic_radius, 2 / 3) * math.pow(channel_slope,
+                                                                    1 / 2)) / manning_roughness_coefficient
 
     @staticmethod
-    def __discharge(velocity: float, channel_area: float) -> float:
-        return velocity * channel_area
+    def __discharge(velocity: float, cross_sectional_area: float) -> float:
+        return velocity * cross_sectional_area
