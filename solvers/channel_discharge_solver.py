@@ -7,9 +7,7 @@ class ChannelDischargeSolver:
 
     def __init__(self, channel_type=ChannelType.Trapezoid, manning_roughness_coefficient: float = None,
                  channel_slope: float = None,
-                 bottom_width_channel: float = None, depth_flow: float = None, side_slope: float = None,
-                 soil_infiltration_rate: float = None):
-        self.soil_infiltration_rate = soil_infiltration_rate
+                 bottom_width_channel: float = None, depth_flow: float = None, side_slope: float = None):
         self.side_slope = side_slope
         self.depth_flow = depth_flow
         self.bottom_width_channel = bottom_width_channel
@@ -25,17 +23,15 @@ class ChannelDischargeSolver:
 
     def __solve_trapezoidal(self):
 
-        ca = self.__cross_sectional_area(self.bottom_width_channel, self.depth_flow, self.side_slope)
-        wp = self.__wetted_perimeter(self.bottom_width_channel, self.depth_flow, self.side_slope)
+        self.ca = self.__cross_sectional_area(self.bottom_width_channel, self.depth_flow, self.side_slope)
+        self.wp = self.__wetted_perimeter(self.bottom_width_channel, self.depth_flow, self.side_slope)
 
-        hr = self.__hydraulic_radius(ca, wp)
+        self.hr = self.__hydraulic_radius(self.ca, self.wp)
 
-        v = self.__velocity(hr, self.channel_slope, self.manning_roughness_coefficient)
+        self.v = self.__velocity(self.hr, self.channel_slope, self.manning_roughness_coefficient)
 
-        if self.soil_infiltration_rate is not None:
-            pass  #todo
-
-        return round(self.__discharge(v, ca), 2)
+        self.q = round(self.__discharge(self.v, self.ca), 2)
+        return self.q
 
     @staticmethod
     def __cross_sectional_area(bottom_width_channel: float, depth_flow: float, side_slope: float) -> float:

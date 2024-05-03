@@ -1,5 +1,5 @@
 <!DOCTYPE qgis PUBLIC 'http://mrcc.com/qgis.dtd' 'SYSTEM'>
-<qgis projectname="shoal-creek-wq-bio-mitigation&#xa; (QFieldCloud)" saveDateTime="2024-05-01T19:54:10" version="3.34.4-Prizren" saveUserFull="Walker Hannan" saveUser="walkerhannan">
+<qgis projectname="shoal-creek-wq-bio-mitigation&#xa; (QFieldCloud)" saveDateTime="2024-05-02T19:58:55" version="3.34.4-Prizren" saveUserFull="Walker Hannan" saveUser="walkerhannan">
   <homePath path=""/>
   <title>shoal-creek-wq-bio-mitigation
  (QFieldCloud)</title>
@@ -23,7 +23,7 @@
     <customproperties>
       <Option/>
     </customproperties>
-    <layer-tree-group name="Sub Basin" groupLayer="" checked="Qt::Checked" expanded="0">
+    <layer-tree-group name="Sub Basin" groupLayer="" checked="Qt::Checked" expanded="1">
       <customproperties>
         <Option/>
       </customproperties>
@@ -37,7 +37,7 @@
           <Option/>
         </customproperties>
       </layer-tree-layer>
-      <layer-tree-layer name="subbasin — boundary" source="./subbasin.gpkg|layername=boundary" id="boundary_f744297e_ab4f_4e20_90fc_2926e2f19c16" legend_split_behavior="0" patch_size="-1,-1" checked="Qt::Checked" legend_exp="" providerKey="ogr" expanded="1">
+      <layer-tree-layer name="subbasin — boundary" source="./subbasin.gpkg|layername=boundary" id="boundary_f744297e_ab4f_4e20_90fc_2926e2f19c16" legend_split_behavior="0" patch_size="-1,-1" checked="Qt::Unchecked" legend_exp="" providerKey="ogr" expanded="1">
         <customproperties>
           <Option/>
         </customproperties>
@@ -63,7 +63,7 @@
         </customproperties>
       </layer-tree-layer>
     </layer-tree-group>
-    <layer-tree-group name="Study Area" groupLayer="" checked="Qt::Checked" expanded="0">
+    <layer-tree-group name="Study Area" groupLayer="" checked="Qt::Checked" expanded="1">
       <customproperties>
         <Option/>
       </customproperties>
@@ -82,7 +82,7 @@
           <Option/>
         </customproperties>
       </layer-tree-layer>
-      <layer-tree-group name="Study Area Stormwater Infrastructure" groupLayer="" checked="Qt::Checked" expanded="1">
+      <layer-tree-group name="Study Area Stormwater Infrastructure" groupLayer="" checked="Qt::Checked" expanded="0">
         <customproperties>
           <Option/>
         </customproperties>
@@ -96,12 +96,12 @@
             <Option/>
           </customproperties>
         </layer-tree-layer>
-        <layer-tree-layer name="storm_junction" source="./studyarea.gpkg|layername=storm_junction" id="studyarea_4b5e6d6e_613c_4220_a1dd_a32aec9fbd58" legend_split_behavior="0" patch_size="-1,-1" checked="Qt::Checked" legend_exp="" providerKey="ogr" expanded="1">
+        <layer-tree-layer name="storm_junction" source="./studyarea.gpkg|layername=storm_junction" id="studyarea_4b5e6d6e_613c_4220_a1dd_a32aec9fbd58" legend_split_behavior="0" patch_size="-1,-1" checked="Qt::Unchecked" legend_exp="" providerKey="ogr" expanded="1">
           <customproperties>
             <Option/>
           </customproperties>
         </layer-tree-layer>
-        <layer-tree-layer name="storm_header" source="./studyarea.gpkg|layername=storm_header" id="studyarea_485cb9f5_9829_48cf_834c_77935b89783b" legend_split_behavior="0" patch_size="-1,-1" checked="Qt::Checked" legend_exp="" providerKey="ogr" expanded="1">
+        <layer-tree-layer name="storm_header" source="./studyarea.gpkg|layername=storm_header" id="studyarea_485cb9f5_9829_48cf_834c_77935b89783b" legend_split_behavior="0" patch_size="-1,-1" checked="Qt::Unchecked" legend_exp="" providerKey="ogr" expanded="1">
           <customproperties>
             <Option/>
           </customproperties>
@@ -147,7 +147,7 @@
           </customproperties>
         </layer-tree-layer>
       </layer-tree-group>
-      <layer-tree-layer name="studyarea_bio_controls" source="./studyarea.gpkg|layername=bio_controls" id="studyarea_6bb966be_62ab_4a16_9ec3_c08d070299e7" legend_split_behavior="0" patch_size="-1,-1" checked="Qt::Unchecked" legend_exp="" providerKey="ogr" expanded="0">
+      <layer-tree-layer name="studyarea_bio_controls" source="./studyarea.gpkg|layername=bio_controls" id="studyarea_6bb966be_62ab_4a16_9ec3_c08d070299e7" legend_split_behavior="0" patch_size="-1,-1" checked="Qt::Checked" legend_exp="" providerKey="ogr" expanded="0">
         <customproperties>
           <Option/>
         </customproperties>
@@ -157,7 +157,7 @@
           <Option/>
         </customproperties>
       </layer-tree-layer>
-      <layer-tree-layer name="Soils - Soil Name" source="./studyarea.gpkg|layername=soils" id="studyarea_52ed79ba_a6a9_4620_8376_9643d2b2b475" legend_split_behavior="0" patch_size="-1,-1" checked="Qt::Checked" legend_exp="" providerKey="ogr" expanded="0">
+      <layer-tree-layer name="Soils - Soil Name" source="./studyarea.gpkg|layername=soils" id="studyarea_52ed79ba_a6a9_4620_8376_9643d2b2b475" legend_split_behavior="0" patch_size="-1,-1" checked="Qt::Unchecked" legend_exp="" providerKey="ogr" expanded="0">
         <customproperties>
           <Option/>
         </customproperties>
@@ -418,10 +418,10 @@
   <mapcanvas name="theMapCanvas" annotationsVisible="1">
     <units>meters</units>
     <extent>
-      <xmin>620096.06641710549592972</xmin>
-      <ymin>3356025.5471135750412941</ymin>
-      <xmax>620666.52641711384057999</xmax>
-      <ymax>3356679.57221356779336929</ymax>
+      <xmin>620033.01951372029725462</xmin>
+      <ymin>3355962.98657335061579943</ymin>
+      <xmax>621002.54571372026111931</xmax>
+      <ymax>3356617.01157335098832846</ymax>
     </extent>
     <rotation>0</rotation>
     <destinationsrs>
@@ -442,7 +442,7 @@
   </mapcanvas>
   <projectModels/>
   <legend updateDrawingOrder="true">
-    <legendgroup name="Sub Basin" open="false" checked="Qt::Checked">
+    <legendgroup name="Sub Basin" open="true" checked="Qt::Checked">
       <legendlayer drawingOrder="-1" name="Clipped (mask)" showFeatureCount="0" open="false" checked="Qt::Unchecked">
         <filegroup hidden="false" open="false">
           <legendlayerfile layerid="OUTPUT_cbe93e0f_c9f3_4151_9764_70a90194e5fe" visible="0" isInOverview="0"/>
@@ -453,9 +453,9 @@
           <legendlayerfile layerid="OUTPUT_3c466569_5382_4fd3_8c8b_480ac78b485e" visible="0" isInOverview="0"/>
         </filegroup>
       </legendlayer>
-      <legendlayer drawingOrder="-1" name="subbasin — boundary" showFeatureCount="0" open="true" checked="Qt::Checked">
+      <legendlayer drawingOrder="-1" name="subbasin — boundary" showFeatureCount="0" open="true" checked="Qt::Unchecked">
         <filegroup hidden="false" open="true">
-          <legendlayerfile layerid="boundary_f744297e_ab4f_4e20_90fc_2926e2f19c16" visible="1" isInOverview="0"/>
+          <legendlayerfile layerid="boundary_f744297e_ab4f_4e20_90fc_2926e2f19c16" visible="0" isInOverview="0"/>
         </filegroup>
       </legendlayer>
     </legendgroup>
@@ -476,7 +476,7 @@
         </filegroup>
       </legendlayer>
     </legendgroup>
-    <legendgroup name="Study Area" open="false" checked="Qt::Checked">
+    <legendgroup name="Study Area" open="true" checked="Qt::Checked">
       <legendlayer drawingOrder="-1" name="studyarea_hillshade_exxagerated" showFeatureCount="0" open="false" checked="Qt::Checked">
         <filegroup hidden="false" open="false">
           <legendlayerfile layerid="studyarea_hillshade_exxagerated_fe2605dd_4b1d_4592_8228_5853e0c30ba8" visible="1" isInOverview="0"/>
@@ -492,7 +492,7 @@
           <legendlayerfile layerid="studyarea_637a008b_6fd8_413b_8c94_c298d96a3436" visible="1" isInOverview="0"/>
         </filegroup>
       </legendlayer>
-      <legendgroup name="Study Area Stormwater Infrastructure" open="true" checked="Qt::Checked">
+      <legendgroup name="Study Area Stormwater Infrastructure" open="false" checked="Qt::Checked">
         <legendlayer drawingOrder="-1" name="storm_open_channel" showFeatureCount="0" open="true" checked="Qt::Checked">
           <filegroup hidden="false" open="true">
             <legendlayerfile layerid="studyarea_cef87817_a3c8_4e21_b0b5_91055cb40a8f" visible="1" isInOverview="0"/>
@@ -503,14 +503,14 @@
             <legendlayerfile layerid="studyarea_34f85a68_348b_4c12_8ceb_47b72633110d" visible="0" isInOverview="0"/>
           </filegroup>
         </legendlayer>
-        <legendlayer drawingOrder="-1" name="storm_junction" showFeatureCount="0" open="true" checked="Qt::Checked">
+        <legendlayer drawingOrder="-1" name="storm_junction" showFeatureCount="0" open="true" checked="Qt::Unchecked">
           <filegroup hidden="false" open="true">
-            <legendlayerfile layerid="studyarea_4b5e6d6e_613c_4220_a1dd_a32aec9fbd58" visible="1" isInOverview="0"/>
+            <legendlayerfile layerid="studyarea_4b5e6d6e_613c_4220_a1dd_a32aec9fbd58" visible="0" isInOverview="0"/>
           </filegroup>
         </legendlayer>
-        <legendlayer drawingOrder="-1" name="storm_header" showFeatureCount="0" open="true" checked="Qt::Checked">
+        <legendlayer drawingOrder="-1" name="storm_header" showFeatureCount="0" open="true" checked="Qt::Unchecked">
           <filegroup hidden="false" open="true">
-            <legendlayerfile layerid="studyarea_485cb9f5_9829_48cf_834c_77935b89783b" visible="1" isInOverview="0"/>
+            <legendlayerfile layerid="studyarea_485cb9f5_9829_48cf_834c_77935b89783b" visible="0" isInOverview="0"/>
           </filegroup>
         </legendlayer>
         <legendlayer drawingOrder="-1" name="storm_grate_inlet" showFeatureCount="0" open="true" checked="Qt::Checked">
@@ -554,9 +554,9 @@
           </filegroup>
         </legendlayer>
       </legendgroup>
-      <legendlayer drawingOrder="-1" name="studyarea_bio_controls" showFeatureCount="0" open="false" checked="Qt::Unchecked">
+      <legendlayer drawingOrder="-1" name="studyarea_bio_controls" showFeatureCount="0" open="false" checked="Qt::Checked">
         <filegroup hidden="false" open="false">
-          <legendlayerfile layerid="studyarea_6bb966be_62ab_4a16_9ec3_c08d070299e7" visible="0" isInOverview="0"/>
+          <legendlayerfile layerid="studyarea_6bb966be_62ab_4a16_9ec3_c08d070299e7" visible="1" isInOverview="0"/>
         </filegroup>
       </legendlayer>
       <legendlayer drawingOrder="-1" name="Sub Basins" showFeatureCount="0" open="false" checked="Qt::Unchecked">
@@ -564,9 +564,9 @@
           <legendlayerfile layerid="studyarea_a6cb262e_954a_4d1d_a24a_6f8116701a28" visible="0" isInOverview="0"/>
         </filegroup>
       </legendlayer>
-      <legendlayer drawingOrder="-1" name="Soils - Soil Name" showFeatureCount="0" open="false" checked="Qt::Checked">
+      <legendlayer drawingOrder="-1" name="Soils - Soil Name" showFeatureCount="0" open="false" checked="Qt::Unchecked">
         <filegroup hidden="false" open="false">
-          <legendlayerfile layerid="studyarea_52ed79ba_a6a9_4620_8376_9643d2b2b475" visible="1" isInOverview="0"/>
+          <legendlayerfile layerid="studyarea_52ed79ba_a6a9_4620_8376_9643d2b2b475" visible="0" isInOverview="0"/>
         </filegroup>
       </legendlayer>
       <legendlayer drawingOrder="-1" name="studyarea_imperviousness" showFeatureCount="0" open="false" checked="Qt::Unchecked">
@@ -41183,7 +41183,7 @@ def my_form_open(dialog, layer, feature):
         <geographicflag>false</geographicflag>
       </spatialrefsys>
     </Bookmark>
-    <Bookmark extent="POLYGON((620051.99219999997876585 3355965.75779999978840351, 620622.45220000005792826 3355965.75779999978840351, 620622.45220000005792826 3356619.7828999999910593, 620051.99219999997876585 3356619.7828999999910593, 620051.99219999997876585 3355965.75779999978840351))" rotation="0" name="Project Area" id="{55abf215-d3fa-492e-9054-685f91f37a49}" group="">
+    <Bookmark extent="POLYGON((620184.80110000004060566 3356111.35729999979957938, 620669.56420000002253801 3356111.35729999979957938, 620669.56420000002253801 3356438.3697999999858439, 620184.80110000004060566 3356438.3697999999858439, 620184.80110000004060566 3356111.35729999979957938))" rotation="0" name="Project Area" id="{33787a7c-7f50-4d44-888e-9d48fe0bbab9}" group="">
       <spatialrefsys nativeFormat="Wkt">
         <wkt>PROJCRS["NAD83 / UTM zone 14N",BASEGEOGCRS["NAD83",DATUM["North American Datum 1983",ELLIPSOID["GRS 1980",6378137,298.257222101,LENGTHUNIT["metre",1]]],PRIMEM["Greenwich",0,ANGLEUNIT["degree",0.0174532925199433]],ID["EPSG",4269]],CONVERSION["UTM zone 14N",METHOD["Transverse Mercator",ID["EPSG",9807]],PARAMETER["Latitude of natural origin",0,ANGLEUNIT["degree",0.0174532925199433],ID["EPSG",8801]],PARAMETER["Longitude of natural origin",-99,ANGLEUNIT["degree",0.0174532925199433],ID["EPSG",8802]],PARAMETER["Scale factor at natural origin",0.9996,SCALEUNIT["unity",1],ID["EPSG",8805]],PARAMETER["False easting",500000,LENGTHUNIT["metre",1],ID["EPSG",8806]],PARAMETER["False northing",0,LENGTHUNIT["metre",1],ID["EPSG",8807]]],CS[Cartesian,2],AXIS["(E)",east,ORDER[1],LENGTHUNIT["metre",1]],AXIS["(N)",north,ORDER[2],LENGTHUNIT["metre",1]],USAGE[SCOPE["Engineering survey, topographic mapping."],AREA["North America - between 102°W and 96°W - onshore and offshore. Canada - Manitoba; Nunavut; Saskatchewan. United States (USA) - Iowa; Kansas; Minnesota; Nebraska; North Dakota; Oklahoma; South Dakota; Texas."],BBOX[25.83,-102,84,-96]],ID["EPSG",26914]]</wkt>
         <proj4>+proj=utm +zone=14 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs</proj4>
@@ -41200,7 +41200,7 @@ def my_form_open(dialog, layer, feature):
   <Sensors/>
   <ProjectViewSettings rotation="0" UseProjectScales="0">
     <Scales/>
-    <DefaultViewExtent ymin="3356025.54709256533533335" xmin="620096.06641710549592972" xmax="620666.52641711384057999" ymax="3356679.57223457749933004">
+    <DefaultViewExtent ymin="3355962.98649841686710715" xmin="620033.01951372029725462" xmax="621002.54571372026111931" ymax="3356617.01164828473702073">
       <spatialrefsys nativeFormat="Wkt">
         <wkt>PROJCRS["NAD83 / UTM zone 14N",BASEGEOGCRS["NAD83",DATUM["North American Datum 1983",ELLIPSOID["GRS 1980",6378137,298.257222101,LENGTHUNIT["metre",1]]],PRIMEM["Greenwich",0,ANGLEUNIT["degree",0.0174532925199433]],ID["EPSG",4269]],CONVERSION["UTM zone 14N",METHOD["Transverse Mercator",ID["EPSG",9807]],PARAMETER["Latitude of natural origin",0,ANGLEUNIT["degree",0.0174532925199433],ID["EPSG",8801]],PARAMETER["Longitude of natural origin",-99,ANGLEUNIT["degree",0.0174532925199433],ID["EPSG",8802]],PARAMETER["Scale factor at natural origin",0.9996,SCALEUNIT["unity",1],ID["EPSG",8805]],PARAMETER["False easting",500000,LENGTHUNIT["metre",1],ID["EPSG",8806]],PARAMETER["False northing",0,LENGTHUNIT["metre",1],ID["EPSG",8807]]],CS[Cartesian,2],AXIS["(E)",east,ORDER[1],LENGTHUNIT["metre",1]],AXIS["(N)",north,ORDER[2],LENGTHUNIT["metre",1]],USAGE[SCOPE["Engineering survey, topographic mapping."],AREA["North America - between 102°W and 96°W - onshore and offshore. Canada - Manitoba; Nunavut; Saskatchewan. United States (USA) - Iowa; Kansas; Minnesota; Nebraska; North Dakota; Oklahoma; South Dakota; Texas."],BBOX[25.83,-102,84,-96]],ID["EPSG",26914]]</wkt>
         <proj4>+proj=utm +zone=14 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs</proj4>
@@ -41265,7 +41265,7 @@ def my_form_open(dialog, layer, feature):
       </spatialrefsys>
     </CoordinateCustomCrs>
   </ProjectDisplaySettings>
-  <ProjectGpsSettings destinationFollowsActiveLayer="1" destinationLayer="" autoCommitFeatures="0" autoAddTrackVertices="0">
+  <ProjectGpsSettings destinationFollowsActiveLayer="1" destinationLayerSource="/Users/walkerhannan/projects/Bio-Mitigation-Sediment-Transport/qgis/studyarea.gpkg|layername=storm_drainage_pipe" destinationLayer="studyarea_c22ecb57_b029_4ca9_ac54_70584c927c9d" destinationLayerName="storm_drainage_pipe" autoCommitFeatures="0" destinationLayerProvider="ogr" autoAddTrackVertices="0">
     <timeStampFields/>
   </ProjectGpsSettings>
 </qgis>
