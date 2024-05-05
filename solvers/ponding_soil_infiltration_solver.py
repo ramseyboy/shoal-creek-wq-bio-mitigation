@@ -5,34 +5,23 @@ class PondingSoilInfiltrationSolver:
                  channel_length: float = None,
                  soil_infiltration_rate: float = None,
                  soil_depth: float = None,
-                 soil_water_capacity: float = None):
+                 soil_water_capacity_dry: float = None,
+                 soil_water_capacity_wet: float = None):
         self.channel_length = channel_length
         self.wetted_perimeter = wetted_perimeter
         self.flow_volume = flow_volume
-        self.soil_water_capacity = soil_water_capacity
+        self.soil_water_capacity_dry = soil_water_capacity_dry
+        self.soil_water_capacity_wet = soil_water_capacity_wet
         self.soil_depth = soil_depth
         self.soil_infiltration_rate = soil_infiltration_rate
 
     def solve(self):
         wetted_area = self.wetted_perimeter * self.channel_length
         soil_volume = wetted_area * self.soil_depth
-        available_soil_volume = soil_volume * self.soil_water_capacity
+        available_soil_volume_wet = soil_volume * self.soil_water_capacity_wet
+        available_soil_volume_dry = soil_volume * self.soil_water_capacity_dry
 
         soil_rate_fth = self.soil_infiltration_rate / 12
-        soil_rate_sfs = soil_rate_fth * wetted_area
+        soil_rate_cfh = soil_rate_fth * wetted_area
 
-        remaining_flow_volume = self.flow_volume
-
-        if remaining_flow_volume <= available_soil_volume:
-            return round(remaining_flow_volume / soil_rate_sfs, 2)
-
-        t = 0
-        while remaining_flow_volume > 0:
-            if remaining_flow_volume > available_soil_volume:
-                v_mod = remaining_flow_volume % available_soil_volume
-                t * 1.5  # todo: how does reaching water capacity affect further infiltration / evaporation etc..
-            else:
-                v_mod = available_soil_volume
-            t = t + v_mod / soil_rate_sfs
-            remaining_flow_volume = remaining_flow_volume - v_mod
-        return round(t, 2)
+        return round(soil_volume, 2), round(available_soil_volume_dry, 2), round(available_soil_volume_wet, 2), soil_rate_cfh, round(self.flow_volume / soil_rate_cfh, 2)
