@@ -27,4 +27,4 @@ class CatchmentRainfallDepthSolver:
         d = self.runoff_volume / (3630 * rc * self.catchment_area)
         dsd = self.total_capacity_with_dry_soil / (3630 * rc * self.catchment_area)
         dsw = self.total_capacity_with_wet_soil / (3630 * rc * self.catchment_area)
-        return round(d, 2), round(dsd, 2), round(dsw, 2)
+        return round(d, 1), round(dsd, 1), round(dsw, 1)

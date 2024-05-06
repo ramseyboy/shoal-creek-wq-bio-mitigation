@@ -1,5 +1,15 @@
 <PAMDataset>
   <PAMRasterBand band="1">
+    <Histograms>
+      <HistItem>
+        <HistMin>0.505</HistMin>
+        <HistMax>100.495</HistMax>
+        <BucketCount>100</BucketCount>
+        <IncludeOutOfRange>0</IncludeOutOfRange>
+        <Approximate>0</Approximate>
+        <HistCounts>753|264|311|353|351|289|186|171|156|168|185|182|191|212|215|253|269|295|442|362|347|367|357|345|329|305|283|256|262|239|228|274|317|364|393|420|472|448|425|421|418|395|413|404|396|376|385|359|379|362|373|324|369|346|333|325|289|327|322|316|362|317|328|375|334|368|299|332|347|342|355|400|352|353|324|380|370|395|415|389|397|429|435|424|445|488|506|487|516|510|527|520|458|470|448|472|389|378|319|872</HistCounts>
+      </HistItem>
+    </Histograms>
     <GDALRasterAttributeTable tableType="thematic">
       <FieldDefn index="0">
         <Name>Value</Name>

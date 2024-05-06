@@ -30,7 +30,7 @@ class ChannelDischargeSolver:
 
         self.v = self.__velocity(self.hr, self.channel_slope, self.manning_roughness_coefficient)
 
-        self.q = round(self.__discharge(self.v, self.ca), 2)
+        self.q = round(self.__discharge(self.v, self.ca), 1)
         return self.q
 
     @staticmethod

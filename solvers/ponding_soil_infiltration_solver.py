@@ -24,4 +24,4 @@ class PondingSoilInfiltrationSolver:
         soil_rate_fth = self.soil_infiltration_rate / 12
         soil_rate_cfh = soil_rate_fth * wetted_area
 
-        return round(soil_volume, 2), round(available_soil_volume_dry, 2), round(available_soil_volume_wet, 2), soil_rate_cfh, round(self.flow_volume / soil_rate_cfh, 2)
+        return round(soil_volume, 1), round(available_soil_volume_dry, 1), round(available_soil_volume_wet, 1), round(soil_rate_cfh, 1), round(self.flow_volume / soil_rate_cfh, 1)

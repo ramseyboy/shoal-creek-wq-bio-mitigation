@@ -1,6 +1,16 @@
 <PAMDataset>
   <PAMRasterBand band="1">
     <Description>Layer_1</Description>
+    <Histograms>
+      <HistItem>
+        <HistMin>20.50714285714286</HistMin>
+        <HistMax>90.49285714285715</HistMax>
+        <BucketCount>70</BucketCount>
+        <IncludeOutOfRange>0</IncludeOutOfRange>
+        <Approximate>0</Approximate>
+        <HistCounts>596|593|329|180|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|15|111|0|0|0|0|0|0|0|0|0|22|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|120|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|0|13</HistCounts>
+      </HistItem>
+    </Histograms>
     <GDALRasterAttributeTable Row0Min="0" BinSize="1" tableType="thematic">
       <FieldDefn index="0">
         <Name>Histogram</Name>
@@ -2081,5 +2091,14 @@
         <F></F>
       </Row>
     </GDALRasterAttributeTable>
+    <Metadata>
+      <MDI key="LAYER_TYPE">thematic</MDI>
+      <MDI key="OVERVIEWS_ALGORITHM">IMAGINE Nearest Neighbor Resampling</MDI>
+      <MDI key="STATISTICS_MAXIMUM">90</MDI>
+      <MDI key="STATISTICS_MEAN">27.064173825164</MDI>
+      <MDI key="STATISTICS_MINIMUM">21</MDI>
+      <MDI key="STATISTICS_STDDEV">13.650122576327</MDI>
+      <MDI key="STATISTICS_VALID_PERCENT">55.36</MDI>
+    </Metadata>
   </PAMRasterBand>
 </PAMDataset>

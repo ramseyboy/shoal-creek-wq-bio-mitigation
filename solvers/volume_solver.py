@@ -24,8 +24,8 @@ class VolumeSolver:
     def __solve_trapezoidal(self):
         v = ((self.bottom_width_channel + self.top_width_channel) / 2) * self.depth_flow * self.channel_length
 
-        return round(v, 2)
+        return round(v, 1)
 
     def __solve_rectangular(self):
         v = self.channel_length * self.top_width_channel * self.depth_flow
-        return round(v, 2)
+        return round(v, 1)

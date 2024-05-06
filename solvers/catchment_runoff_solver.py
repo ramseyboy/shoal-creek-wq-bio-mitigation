@@ -24,4 +24,4 @@ class CatchmentRunoffSolver:
 
     def __solve_simple(self) -> float:
         rc = self.__runoff_coefficient(self.impervious_cover_fraction)
-        return round(3630 * self.rainfall_depth * rc * self.catchment_area, 2)
+        return round(3630 * self.rainfall_depth * rc * self.catchment_area, 1)
