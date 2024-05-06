@@ -15,7 +15,7 @@ class PondingSoilInfiltrationSolver:
         self.soil_depth = soil_depth
         self.soil_infiltration_rate = soil_infiltration_rate
 
-    def solve(self):
+    def solve(self) -> tuple[float, float, float, float, float]:
         wetted_area = self.wetted_perimeter * self.channel_length
         soil_volume = wetted_area * self.soil_depth
         available_soil_volume_wet = soil_volume * self.soil_water_capacity_wet

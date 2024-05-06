@@ -7,5 +7,5 @@ class ChannelType(Enum):
 
 
 class RunoffSolverType(Enum):
-    Rational = 1,
+    Simple = 1,
     SCS = 2
