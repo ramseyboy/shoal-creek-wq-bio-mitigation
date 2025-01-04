@@ -1,5 +1,11 @@
 Project data and exploratory analysis for GEOL 2389 - Geology/Hydrology Research Internship
 
+### Final Research Poster
+
+![Poster](GEOL%202389%20Group%201%20Research%20Poster.001.jpeg)
+
+[PDF Link](GEOL%202389%20Group%201%20Research%20Poster.pdf)
+
 ### Database Access and Configuration
 
 Notebooks and qgis project are associated with a PostGIS SQL Database.
